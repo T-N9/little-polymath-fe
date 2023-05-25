@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   packagerConfig: {
-    icon: path.resolve(__dirname, "assets/icons/win/icon"),
+    icon: path.resolve(__dirname, "assets/Icon/lpicon256"),
   },
   rebuildConfig: {},
   makers: [
@@ -11,9 +11,9 @@ module.exports = {
       productName: "Little Polymath",
       config: {
         // An URL to an ICO file to use as the application icon (displayed in Control Panel > Programs and Features).
-        iconUrl: path.resolve(__dirname, "assets/icons/win/icon.ico"),
+        iconUrl: path.resolve(__dirname, "assets/Icon/lpicon256.ico"),
         // The ICO file to use as the icon for the generated Setup.exe
-        setupIcon: path.resolve(__dirname, "assets/icons/win/icon.ico"),
+        setupIcon: path.resolve(__dirname, "assets/Icon/lpicon256.ico"),
       },
     },
     {
