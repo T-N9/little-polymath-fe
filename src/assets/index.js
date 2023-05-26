@@ -1,0 +1,1 @@
+export { default as mainLogo } from './lpicon512.png'; 

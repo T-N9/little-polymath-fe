@@ -1,14 +1,13 @@
 import React from "react";
 import "./index.css";
+import "./style.css";
 
-import { fetchQuizItems } from "./contentful";
+import { HomePage } from "./pages";
 
 const App = () => {
-  fetchQuizItems();
   return (
     <div>
-      <h1 className="font-bold text-2xl text-center">Hello World!</h1>
-      <button class="btn w-64 rounded-full">Button</button>
+      <HomePage />
     </div>
   );
 };
