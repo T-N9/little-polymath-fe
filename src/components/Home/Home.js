@@ -1,38 +1,40 @@
-import React, { useEffect, useState } from "react";
-
-import { fetchQuizItems } from "../../contentful";
-/* Components */
-import QuizItem from "../common/QuizItem";
+import React from "react";
 
 const Home = () => {
-  const [quizData, setQuizData] = useState();
-
-  useEffect(() => {
-    const quizItemsPromise = fetchQuizItems();
-
-    quizItemsPromise
-      .then((quizItems) => {
-        // Access the quizItems array and process/store the data as needed
-        console.log(quizItems); // Example: Log the array to the console
-        setQuizData(quizItems);
-
-      })
-      .catch((error) => {
-        // Handle error
-      });
-  }, []);
-
-  console.log({ quizData });
-
   return (
-    <div className="">
-      <div className="w-full h-full flex justify-center items-center">
-        <div className="w-[70%] flex flex-col gap-5">
-          {quizData?.map((item, index) => {
-            const qNumber = index+1;
-            console.log({qNumber})
-            return <QuizItem key={index} content={item} qNumber={qNumber} />;
-          })}
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content text-center">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl font-bold">Hello there</h1>
+          <p className="py-6 w-[70%] mx-auto text-sm">
+            Welcome to Little Polymath, where you can put your knowledge to the
+            test and take your skills to new heights. Prepare yourself for the
+            upcoming FE exam and beyond by choosing from our selection of
+            engaging quiz modes. Challenge yourself, learn, and excel in the
+            exciting field of technology.
+          </p>
+
+          <h1 className="text-center mb-4">Choose a mode:</h1>
+
+          <div className="flex flex-col w-full border-opacity-50">
+            <div className="flex flex-col w-full lg:flex-row">
+              <div className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center">
+                <h1 className="text-xl font-bold text-primary">
+                  By Chapters
+                </h1>
+              </div>
+              <div className="divider lg:divider-horizontal">OR</div>
+              <div className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center">
+                <h1 className="text-xl font-bold text-primary">By Years</h1>
+              </div>
+            </div>
+            <div className="divider">OR</div>
+            <div className="grid btn glass h-20 card rounded-box place-items-center">
+              <h1 className="text-xl font-bold text-primary">
+                Randomized Mock Up
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>
