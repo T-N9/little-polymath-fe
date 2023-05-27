@@ -1,15 +1,27 @@
 import React from "react";
+
+/* Hook */
+import Hook from "./hook";
 /* Image */
 import { mainLogo } from "../../assets/index";
+/* Icons */
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 const NavBar = () => {
+  const { path,handleGoBack } = Hook();
+
+
+
   return (
     <div className="navbar bg-base-100 container mx-auto">
-      <div className="flex-1 flex items-center gap-3">
-        <img src={mainLogo} className="w-[40px] h-[40px]" />
-        <h1 className="normal-case text-xl font-bold">
-          Little Polymath FE
-        </h1>
+      <div className={`mr-5 ${path === '/' ? 'text-base-100 pointer-events-none' : 'text-neutral'}`}>
+        <BsFillArrowLeftSquareFill onClick={handleGoBack} className="cursor-pointer" size={24}/>
+      </div>
+      <div className="flex-1">
+        <a href="/" className=" flex items-center gap-3">
+          <img src={mainLogo} className="w-[40px] h-[40px]" />
+          <h1 className="normal-case text-xl font-bold">Little Polymath FE</h1>
+        </a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

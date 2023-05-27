@@ -18,15 +18,25 @@ const Home = () => {
 
           <div className="flex flex-col w-full border-opacity-50">
             <div className="flex flex-col w-full lg:flex-row">
-              <div className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center">
-                <h1 className="text-xl font-bold text-primary">
-                  By Chapters
-                </h1>
-              </div>
+              <a
+                className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center"
+                href="/by-chapters"
+              >
+                <div>
+                  <h1 className="text-xl font-bold text-primary">
+                    By Chapters
+                  </h1>
+                </div>
+              </a>
               <div className="divider lg:divider-horizontal">OR</div>
-              <div className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center">
-                <h1 className="text-xl font-bold text-primary">By Years</h1>
-              </div>
+              <a
+                className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center"
+                href="/by-years"
+              >
+                <div>
+                  <h1 className="text-xl font-bold text-primary">By Years</h1>
+                </div>
+              </a>
             </div>
             <div className="divider">OR</div>
             <div className="grid btn glass h-20 card rounded-box place-items-center">
