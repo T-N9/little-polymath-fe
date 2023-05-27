@@ -19,6 +19,8 @@ const createWindow = () => {
     icon: path.join(__dirname, "../assets/lpicon256.png"),
   });
 
+  mainWindow.setMenuBarVisibility(false);
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "index.html"));
   if (isDev) {

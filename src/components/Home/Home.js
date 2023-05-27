@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero py-14 min-h-screen bg-base-200">
       <div className="hero-content text-center">
         <div className="max-w-3xl">
           <h1 className="text-5xl font-bold">Hello there</h1>
@@ -19,7 +19,7 @@ const Home = () => {
           <div className="flex flex-col w-full border-opacity-50">
             <div className="flex flex-col w-full lg:flex-row">
               <a
-                className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center"
+                className="grid btn flex-1 flex-grow h-32 card rounded-box place-items-center"
                 href="/by-chapters"
               >
                 <div>
@@ -30,7 +30,7 @@ const Home = () => {
               </a>
               <div className="divider lg:divider-horizontal">OR</div>
               <a
-                className="grid btn glass flex-1 flex-grow h-32 card rounded-box place-items-center"
+                className="grid btn flex-1 flex-grow h-32 card rounded-box place-items-center"
                 href="/by-years"
               >
                 <div>
@@ -39,7 +39,7 @@ const Home = () => {
               </a>
             </div>
             <div className="divider">OR</div>
-            <div className="grid btn glass h-20 card rounded-box place-items-center">
+            <div className="grid btn h-20 card rounded-box place-items-center">
               <h1 className="text-xl font-bold text-primary">
                 Randomized Mock Up
               </h1>

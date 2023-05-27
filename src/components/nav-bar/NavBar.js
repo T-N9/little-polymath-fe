@@ -8,14 +8,20 @@ import { mainLogo } from "../../assets/index";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 const NavBar = () => {
-  const { path,handleGoBack } = Hook();
-
-
+  const { path, handleGoBack } = Hook();
 
   return (
-    <div className="navbar bg-base-100 container mx-auto">
-      <div className={`mr-5 ${path === '/' ? 'text-base-100 pointer-events-none' : 'text-neutral'}`}>
-        <BsFillArrowLeftSquareFill onClick={handleGoBack} className="cursor-pointer" size={24}/>
+    <div className="navbar bg-base-100 px-10 z-20 mx-auto fixed top-0 left-0 right-0">
+      <div
+        className={`mr-5 ${
+          path === "/" ? "text-base-100 pointer-events-none" : "text-gray-400"
+        }`}
+      >
+        <BsFillArrowLeftSquareFill
+          onClick={handleGoBack}
+          className="cursor-pointer"
+          size={24}
+        />
       </div>
       <div className="flex-1">
         <a href="/" className=" flex items-center gap-3">
