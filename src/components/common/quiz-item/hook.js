@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
-const QuizItem = ({ content, qNumber }) => {
+const Hook = (content, setAnsweredLength, setTotalMark, isSubmitted) => {
   //   const { question, optionA, optionB, optionC, optionD, topic } = content?.fields;
   const topic = content.fields.topic;
   const question = content.fields.question;
@@ -15,6 +13,9 @@ const QuizItem = ({ content, qNumber }) => {
 
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [quizDataArr, setQuizDataArr] = useState();
+  const [isAnswered, setIsAnswered] = useState(0);
+  const [answerState, setAnswerState] = useState("N");
+  const [styleState, setStyleState] = useState("normal");
 
   const optionArray = [
     { option: optionA, optionMark: "A" },
@@ -39,6 +40,40 @@ const QuizItem = ({ content, qNumber }) => {
     setQuizDataArr(shuffleArray(optionArray));
   }, []);
 
+  useEffect(() => {
+    if (isSubmitted) {
+      if (answer === currentAnswer) {
+        setStyleState("true");
+      } else {
+        setStyleState("false");
+      }
+    }
+    console.log({ styleState });
+  }, [isSubmitted]);
+
+  useEffect(() => {
+    if (isAnswered === 1) {
+      setAnsweredLength((prev) => prev + 1);
+    }
+
+    if (answer === currentAnswer) {
+      if (answerState === "N") {
+        setTotalMark((prev) => prev + 1);
+        setAnswerState("+1");
+      } else if (answerState === "-1") {
+        setTotalMark((prev) => prev + 1);
+        setAnswerState("+1");
+      }
+    } else {
+      if (answerState === "+1") {
+        setTotalMark((prev) => prev - 1);
+        setAnswerState("-1");
+      } else if (answerState === "-1") {
+        setAnswerState("N");
+      }
+    }
+  }, [isAnswered]);
+
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
@@ -59,51 +94,17 @@ const QuizItem = ({ content, qNumber }) => {
     },
   };
 
-  return (
-    <div className="p-5 shadow quiz-section border  border-primary border-t-0 border-b-0 border-r-0 border-l-4">
-      {/* <h1>{topic}</h1> */}
-      <div className="">
-        <div className="flex gap-4">
-          <b className="font-bold text-xl">Q{qNumber}.</b>
-          <div className="">{documentToReactComponents(question, options)}</div>
-        </div>
+  return {
+    question,
+    quizDataArr,
+    options,
+    currentAnswer,
+    answer,
+    styleState,
 
-        <div className="flex flex-wrap justify-between gap-2 mt-6">
-          {quizDataArr?.map((item, index) => {
-            const optionId = nanoid();
-            return (
-              <div key={index} className="flex gap-4 items-center">
-                <input
-                  id={optionId}
-                  type="radio"
-                  name={"quiz option " + optionId}
-                  className={
-                    currentAnswer === item.optionMark
-                      ? "radio-info radio"
-                      : "radio"
-                  }
-                  onChange={() => {
-                    setCurrentAnswer(item.optionMark);
-                  }}
-                  checked={currentAnswer === item.optionMark}
-                />
-                <label
-                  onChange={() => {
-                    setCurrentAnswer(item.optionMark);
-                  }}
-                  htmlFor={optionId}
-                  className="cursor-pointer select-none"
-                >
-                  {documentToReactComponents(item.option, options)}
-                </label>
-                {/* <span>{item.optionMark}</span> */}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
+    setCurrentAnswer,
+    setIsAnswered,
+  };
 };
 
-export default QuizItem;
+export default Hook;

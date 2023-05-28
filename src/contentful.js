@@ -9,12 +9,12 @@ export const fetchQuizItems = async () => {
   try {
     const response = await client.getEntries({
       content_type: "littlePolymath", // Replace 'quizItem' with your actual content type ID
-      //   'fields.chapter': 'Chapter 1',
+      "fields.chapter": "Chapter 1",
       order: "fields.qNumber",
     });
     const quizItems = response.items; // Array of quiz items
     // Process and store quizItems data in your app's state or component
-    // console.log({ quizItems });
+    console.log({ quizItems });
 
     return quizItems;
   } catch (error) {

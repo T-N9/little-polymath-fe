@@ -11,7 +11,7 @@ const NavBar = () => {
   const { path, handleGoBack } = Hook();
 
   return (
-    <div className="navbar bg-base-100 px-10 z-20 mx-auto fixed top-0 left-0 right-0">
+    <nav className="navbar shadow bg-base-100 px-10 z-20 mx-auto fixed top-0 left-0 right-0">
       <div
         className={`mr-5 ${
           path === "/" ? "text-base-100 pointer-events-none" : "text-gray-400"
@@ -61,7 +61,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 

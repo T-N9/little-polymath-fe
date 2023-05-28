@@ -63,3 +63,17 @@ table tbody tr:hover {
   background-color: #eaf5ff;
 }
 
+.quiz-item.normal{
+  border-width:0 0 0 5px;
+}
+
+.quiz-item.true {
+  border-color: #5dbb63 !important;
+  border-width:0 0 0 5px;
+}
+
+.quiz-item.false {
+  border-color: #FE4D4D !important;
+  border-width:0 0 0 5px;
+}
+

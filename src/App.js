@@ -7,7 +7,12 @@ import Footer from "./components/footer/Footer";
 import Disclaimer from "./components/disclaimer/Disclaimer";
 
 /* Pages */
-import { HomePage, ByChaptersPage, ByYearsPage } from "./pages";
+import {
+  HomePage,
+  ByChaptersPage,
+  ByYearsPage,
+  SequentialModePage,
+} from "./pages";
 
 const App = () => {
   return (
@@ -19,6 +24,7 @@ const App = () => {
         <Route exact path="/by-chapters" element={<ByChaptersPage />} />
         <Route exact path="/by-years" element={<ByYearsPage />} />
         <Route exact path="/disclaimer" element={<Disclaimer />} />
+        <Route exact path="/s-mode" element={<SequentialModePage />} />
       </Routes>
 
       <Footer />

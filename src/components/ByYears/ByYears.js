@@ -20,9 +20,9 @@ const ByYears = () => {
                   <div className="flex flex-wrap gap-4 justify-evenly items-center">
                     {examYears.map((item) => {
                       return (
-                        <button key={item} className="btn btn-sm">
-                          {item}
-                        </button>
+                        <a key={item} href="/s-mode">
+                          <button className="btn btn-sm">{item}</button>
+                        </a>
                       );
                     })}
                   </div>
@@ -44,7 +44,9 @@ const ByYears = () => {
                       <div className="swap-on">🍃</div>
                       <div className="swap-off">🍂</div>
 
-                      <p className="text-base font-bold mt-10">{isSpring ? 'Spring' : 'Autumn'}</p>
+                      <p className="text-base font-bold mt-10">
+                        {isSpring ? "Spring" : "Autumn"}
+                      </p>
                     </label>
                   </div>
                 </div>
